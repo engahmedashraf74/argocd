@@ -1,0 +1,27 @@
+apiVersion: v1
+items:
+- apiVersion: argoproj.io/v1alpha1
+  kind: Application
+  metadata:
+    creationTimestamp: "2026-08-03T01:20:26Z"
+    generation: 126
+    name: nginx
+    namespace: argocd
+    resourceVersion: "12997"
+    uid: ba0b35cb-2c67-433b-a592-886a70c7dd7d
+  spec:
+    destination:
+      namespace: default
+      server: https://kubernetes.default.svc
+    project: default
+    source:
+      path: nginx
+      repoURL: https://github.com/engahmedashraf74/argocd.git
+      targetRevision: HEAD
+    syncPolicy:
+      automated:
+        enabled: false
+        prune: false
+        selfHeal: false
+      syncOptions:
+      - CreateNamespace=true
