@@ -1,16 +1,15 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Service
 metadata:
   name: nginx
   namespace: demo
 
-  spec:
-    selector:
-      app: nginx 
+spec:
+  selector:
+    app: nginx
 
-    ports:
+  ports:
     - port: 80
       targetPort: 80
 
-    type: ClusterIP
-
+  type: ClusterIP
